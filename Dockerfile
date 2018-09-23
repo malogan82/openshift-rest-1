@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM redhat-openjdk18-openshift:1.2
+FROM openjdk:8-jdk-alpine
 
 # Add Maintainer Info
 LABEL maintainer="marco.longobardi@eng.it"
