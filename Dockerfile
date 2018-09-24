@@ -10,9 +10,8 @@ VOLUME /tmp
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 # Create the application's jar file
-RUN mvn install
 # The application's jar file
-ARG JAR_FILE=target/openshift-rest-hello-world-1-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=/target/openshift-rest-hello-world-1-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} openshift-rest-hello-world-1.jar
