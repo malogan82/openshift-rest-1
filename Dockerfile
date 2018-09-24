@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM bfg/api-java8-maven-exp-srv-builder
+FROM iflavoursbv/mvn-openjdk-8-alpine
 
 # Add Maintainer Info
 LABEL maintainer="marco.longobardi@eng.it"
