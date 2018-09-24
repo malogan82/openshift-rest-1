@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM openjdk:8-jdk-alpine
+FROM bfg/api-java8-maven-exp-srv-builder
 
 # Add Maintainer Info
 LABEL maintainer="marco.longobardi@eng.it"
@@ -10,11 +10,14 @@ VOLUME /tmp
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
+#Create the application's jar file
+RUN mvn install
+
 # The application's jar file
-ARG JAR_FILE=openshift-rest-hello-world-1-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/openshift-rest-hello-world-1-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} openshift-rest-hello-world-1.jar
+COPY ${JAR_FILE} openshift-rest-hello-world-1.jar
 
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/openshift-rest-hello-world-1.jar"]
