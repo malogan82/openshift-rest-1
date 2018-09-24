@@ -54,8 +54,7 @@
 	            <artifactId>dockerfile-maven-plugin</artifactId>
 	            <version>1.3.6</version>
 	            <configuration>
-	                
-	            	<dockerHost>https://192.168.99.100:2376</dockerHost>
+	                <dockerHost>https://192.168.99.100:2376</dockerHost>
 	                <repository>${docker.image.prefix}/${project.artifactId}</repository>
 	                <buildArgs>
 	                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
