@@ -17,7 +17,7 @@ RUN mvn install
 ARG JAR_FILE=target/openshift-rest-hello-world-1-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-COPY ${JAR_FILE} openshift-rest-hello-world-1.jar
+ADD ${JAR_FILE} openshift-rest-hello-world-1.jar
 
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/openshift-rest-hello-world-1.jar"]
